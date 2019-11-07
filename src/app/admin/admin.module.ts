@@ -12,6 +12,7 @@ import { AnunciosComponent } from './anuncios/anuncios.component';
 import { ProductosComponent } from './productos/productos.component';
 import { VendedoresComponent } from './vendedores/vendedores.component';
 import { FormsModule } from '@angular/forms';
+import { PerfilAdministradorComponent } from './perfil-administrador/perfil-administrador.component';
 
 
 
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     AdminPanelComponent,
     AnunciosComponent,
     ProductosComponent,
-    VendedoresComponent
+    VendedoresComponent,
+    PerfilAdministradorComponent
   ],
   imports: [
     RouterModule,

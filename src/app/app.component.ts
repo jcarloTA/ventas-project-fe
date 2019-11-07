@@ -12,4 +12,12 @@ export class AppComponent {
   constructor(public helpersService: HelpersService) {
 
   }
+
+  toggleMenu() {
+    this.helpersService.openedSidebar = !this.helpersService.openedSidebar;
+  }
+
+  logout() {
+    console.log('logout')
+  }
 }

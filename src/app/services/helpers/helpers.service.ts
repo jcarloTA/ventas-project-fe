@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class HelpersService {
   private _title: String =  'Ventas aplication'
+  private _openedSidebar: Boolean = false;
   constructor() { }
 
   get title():String 
@@ -14,5 +15,13 @@ export class HelpersService {
 
   set title(title: String) {
     this._title = title;
+  }
+
+  get openedSidebar(): Boolean {
+    return this._openedSidebar;
+  }
+
+  set openedSidebar(openedSidebar: Boolean) {
+    this._openedSidebar = openedSidebar
   }
 }

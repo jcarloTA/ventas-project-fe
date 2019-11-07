@@ -1,4 +1,14 @@
 <mat-toolbar color="primary">
+    <button mat-flat-button class="mat-icon-button mat-button-base mat-menu-trigger" (click)="toggleMenu()">
+            <div class="mat-button-wrapper">
+                <mat-icon>menu</mat-icon>
+            </div>
+    </button>
     <span class="margin-auto">{{helpersService.title}}</span>
+    <button mat-flat-button class="mat-icon-button mat-button-base mat-menu-trigger" (click)="logout()">
+            <div class="mat-button-wrapper">
+                <mat-icon>power_settings_new</mat-icon>
+            </div>
+    </button>
 </mat-toolbar>
 <router-outlet></router-outlet>
