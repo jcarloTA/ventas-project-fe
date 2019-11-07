@@ -10,5 +10,12 @@
                 <mat-icon>power_settings_new</mat-icon>
             </div>
     </button>
+    <button mat-flat-button class="mat-icon-button mat-button-base mat-menu-trigger m-l-2"  [matMenuTriggerFor]="menu">Vendedor</button>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="carrito/productos">Ver productos</button>
+        <button mat-menu-item routerLink="carrito/pedidos">Mis pedidos</button>
+        <button mat-menu-item routerLink="carrito/hacer-pedido">Hacer pedido</button>
+        <button mat-menu-item routerLink="carrito/perfil">Mi perfil</button>
+    </mat-menu>
 </mat-toolbar>
 <router-outlet></router-outlet>

@@ -13,6 +13,11 @@ import { VendedoresComponent } from './admin/vendedores/vendedores.component';
 import { CrearProductoComponent } from './admin/crear-producto/crear-producto.component';
 import { CrearVendedorComponent } from './admin/crear-vendedor/crear-vendedor.component';
 import { PerfilAdministradorComponent } from './admin/perfil-administrador/perfil-administrador.component';
+import { CarritoComponent } from './carrito/carrito/carrito.component';
+import { AnunciosListComponent } from './carrito/anuncios-list/anuncios-list.component';
+import { PedidosComponent } from './carrito/pedidos/pedidos.component';
+import { PerfilVendedorComponent } from './carrito/perfil-vendedor/perfil-vendedor.component';
+import { ProductosListComponent } from './carrito/productos-list/productos-list.component';
 
 const routes : Routes = [
   { path: '', redirectTo: 'admin', pathMatch: 'full' },
@@ -30,6 +35,17 @@ const routes : Routes = [
       { path: 'crear-producto', component: CrearProductoComponent},
       { path: 'crear-vendedor', component: CrearVendedorComponent},
       { path: 'perfil-administrador', component: PerfilAdministradorComponent},
+    ]
+  },
+  {
+    path: 'carrito',
+    component: CarritoComponent,
+    children: [
+      { path: 'noticias', component: AnunciosListComponent},
+      { path: 'pedidos', component: PedidosComponent},
+      { path: 'perfil', component: PerfilVendedorComponent},
+      { path: 'productos', component: ProductosListComponent},
+      { path: 'hacer-pedido', component: ProductosListComponent},
     ]
   }
 ]
