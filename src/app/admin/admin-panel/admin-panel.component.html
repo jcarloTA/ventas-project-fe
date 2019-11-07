@@ -1,0 +1,16 @@
+<mat-drawer-container class="admin-panel">
+    <mat-drawer #drawer mode="side" opened class="drawer">
+            <mat-list role="list" class="no-p">
+                <mat-list-item matRipple class="no-focus" routerLink="dashboard">Panel</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item matRipple class="no-focus" routerLink="anuncios">Anuncios</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item matRipple class="no-focus" routerLink="productos">Productos</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item matRipple class="no-focus" routerLink="vendedores">Vendedores</mat-list-item>
+            </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
