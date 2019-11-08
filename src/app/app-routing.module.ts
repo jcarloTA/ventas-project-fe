@@ -19,13 +19,15 @@ import { PedidosComponent } from './carrito/pedidos/pedidos.component';
 import { PerfilVendedorComponent } from './carrito/perfil-vendedor/perfil-vendedor.component';
 import { ProductosListComponent } from './carrito/productos-list/productos-list.component';
 import { HacerPedidoComponent } from './carrito/hacer-pedido/hacer-pedido.component';
+import { AuthGuardService as AuthGuard} from './services/auth-guard/auth-guard.service';
 
 const routes : Routes = [ 
   { path: '', redirectTo: 'admin', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent, canDeactivate: [AuthGuard]},
   { 
     path: 'admin', 
     component: AdminPanelComponent, 
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent},
@@ -40,7 +42,8 @@ const routes : Routes = [
   },
   {
     path: 'carrito',
-    component: CarritoComponent,
+    component: CarritoComponent, 
+    canActivate: [AuthGuard],
     children: [
       { path: 'noticias', component: AnunciosListComponent},
       { path: 'pedidos', component: PedidosComponent},

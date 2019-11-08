@@ -1,13 +1,14 @@
 <div class="container-login flex-center panel panel-md">
-  <form>
+  <form (ngSubmit)="login(model)">
       <mat-form-field class="w-100-p">
-        <input matInput placeholder="Nombre" name="nombre">
+        <input matInput placeholder="Nombre" [(ngModel)]="model.nombre" name="nombre" required>
       </mat-form-field>
     
       <mat-form-field class="w-100-p">
-        <input matInput placeholder="Contrasena" name="Contrasena">
+        <input matInput placeholder="Contrasena" name="Contrasena" [(ngModel)]="model.contrasena" required>
       </mat-form-field>
-      <button mat-raised-button color="primary">Entrar</button>
+      <button mat-raised-button color="primary" type="submit">Entrar</button>
+      <p class="error-form" *ngIf="errorLogin">Ocurrio un erro, ingrese las credenciales correctas</p>
   </form>
 </div>
 
