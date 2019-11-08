@@ -8,5 +8,9 @@ export enum Titles {
     crearAnuncio = "Crear Anuncio",
     crearProducto = "Crear Productos",
     crearVendedor = "Crear Vendedor",
-    perfilAdmin = "Perfil Administrador"
+    perfilAdmin = "Perfil Administrador",
+    carrito = "Carrito",
+    hacerPedido = "Hacer pedido",
+    pedidos = "Pedidos",
+    perfilVendedor = "Mi Perfil"
 }

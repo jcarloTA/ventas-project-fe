@@ -1,6 +1,9 @@
+import { Producto } from './producto';
+
 export interface DetallePedido {
     id?: Number,
     cantidad: Number,
     idPedido: Number,
-    idProducto: Number
+    idProducto: Number,
+    producto?: Producto
 }

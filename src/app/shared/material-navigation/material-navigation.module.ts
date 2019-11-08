@@ -8,6 +8,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatListModule,
     MatDividerModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule
   ],
   exports: [
     MatSidenavModule,
@@ -29,7 +31,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatListModule,
     MatDividerModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule
   ]
 })
 export class MaterialNavigationModule { }

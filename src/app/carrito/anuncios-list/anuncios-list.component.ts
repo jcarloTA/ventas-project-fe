@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HelpersService } from 'src/app/services/helpers/helpers.service';
+import { Titles } from 'src/app/shared/enums/titles.enum';
 
 @Component({
   selector: 'app-anuncios-list',
@@ -7,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnunciosListComponent implements OnInit {
 
-  constructor() { }
-
+  
+  constructor(public helpersService: HelpersService) {
+    this.helpersService.title = Titles.anuncios;
+   }
   ngOnInit() {
   }
 

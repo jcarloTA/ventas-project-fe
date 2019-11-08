@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HelpersService } from 'src/app/services/helpers/helpers.service';
+import { Titles } from 'src/app/shared/enums/titles.enum';
 
 @Component({
   selector: 'app-productos-list',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosListComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(public helpersService: HelpersService) {
+    this.helpersService.title = Titles.productos;
+  }
+
 
   ngOnInit() {
   }

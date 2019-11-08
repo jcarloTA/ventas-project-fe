@@ -3,5 +3,6 @@ export interface Producto {
     nombre: String,
     descripcion: String,
     imagen?: String,
-    costo: Number
+    costo: Number,
+    cantidad?: Number
 }

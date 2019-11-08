@@ -3,8 +3,8 @@ import { DetallePedido } from './detalle-pedido';
 export interface Pedido {
     id?: Number,
     nombre: String,
-    montoTotal: String,
+    montoTotal: Number,
     fechaEntrega: String,
-    idVendedor: Number,
-    detalles: DetallePedido[ ]
+    idVendedor?: Number,
+    detalles?: DetallePedido[ ]
 }

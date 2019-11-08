@@ -18,8 +18,9 @@ import { AnunciosListComponent } from './carrito/anuncios-list/anuncios-list.com
 import { PedidosComponent } from './carrito/pedidos/pedidos.component';
 import { PerfilVendedorComponent } from './carrito/perfil-vendedor/perfil-vendedor.component';
 import { ProductosListComponent } from './carrito/productos-list/productos-list.component';
+import { HacerPedidoComponent } from './carrito/hacer-pedido/hacer-pedido.component';
 
-const routes : Routes = [
+const routes : Routes = [ 
   { path: '', redirectTo: 'admin', pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
   { 
@@ -45,7 +46,7 @@ const routes : Routes = [
       { path: 'pedidos', component: PedidosComponent},
       { path: 'perfil', component: PerfilVendedorComponent},
       { path: 'productos', component: ProductosListComponent},
-      { path: 'hacer-pedido', component: ProductosListComponent},
+      { path: 'hacer-pedido', component: HacerPedidoComponent},
     ]
   }
 ]
