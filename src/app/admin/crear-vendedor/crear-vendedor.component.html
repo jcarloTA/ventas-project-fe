@@ -1,29 +1,34 @@
 <div class="container-login flex-center p-t-2">
     <mat-card>
-            <form (ngSubmit)="crear(model)">
+            <form (ngSubmit)="saveVendedor()" [name]="formVendedor">
                 <mat-form-field class="w-100-p">
-                    <input [(ngModel)]="model.nombre" matInput placeholder="Nombre" name="nombre"  />
+                    <input [(ngModel)]="model.nombre" matInput placeholder="Nombre" name="nombre"  required/>
                 </mat-form-field>
                 
                 <mat-form-field class="w-100-p">
-                    <input matInput placeholder="apellido" [(ngModel)]="model.apellido" name="apellido">
+                    <input matInput placeholder="apellido" [(ngModel)]="model.apellido" name="apellido" required>
                 </mat-form-field>
                 <mat-form-field class="w-100-p">
-                        <input matInput placeholder="Contrasena" [(ngModel)]="model.contrasena" name="contrasena">
+                        <input matInput placeholder="Contrasena" [(ngModel)]="model.contrasena" name="contrasena" (ngModelChange)="validContrasena()" required>
+                        <mat-hint  class="error-form" *ngIf="errors.password.show">{{errors.password.msj}}</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="w-100-p">
+                        <input matInput placeholder="Confirmar Contrasena" [(ngModel)]="model.confirmarContrasena" (ngModelChange)="validConfirmContrasena()" name="confirmarContrasena" required>
+                        <mat-hint  class="error-form" *ngIf="errors.confirmPassword.show">{{errors.confirmPassword.msj}}</mat-hint>
                 </mat-form-field>
                 <mat-form-field class="w-100-p">
                     <input type="text" matInput [(ngModel)]="model.direccion" placeholder="Direccion" name="direccion">
                 </mat-form-field>
 
                 <mat-form-field>
-                        <input matInput [matDatepicker]="picker" [(ngModel)]="model.fechaNacimiento" name="fechaNacimiento" placeholder="Fecha de nacimiento">
+                        <input matInput [matDatepicker]="picker" [(ngModel)]="model.fechaNacimiento" name="fechaNacimiento" placeholder="Fecha de nacimiento" required>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
                 <br>
                 <mat-form-field>
                         <mat-label>Estado</mat-label>
-                        <mat-select [(ngModel)]="model.estado" name="estado">
+                        <mat-select [(ngModel)]="model.estado" name="estado" required>
                             <mat-option value="1">
                                 Activo
                             </mat-option>
@@ -38,14 +43,10 @@
                             <input type="number" matInput [placeholder]="'Telefono ' + (i+1)" [(ngModel)]="telefono.numero" [name]="'telefono' + (i+1)">
                     </mat-form-field>
                 </div>
-                <button mat-stroked-button (click)="agregarTelefono()">Agregar Telefono</button>
+                <button mat-stroked-button (click)="agregarTelefono()" type="button">Agregar Telefono</button>
                 <br>
                 <div class="m-t-2">
-                    <mat-label>Imagen</mat-label> <br>
-                    <input type="file" [(ngModel)]="model.imagen" placeholder="Imagen" name="imagen">
-                </div>
-                <div class="m-t-2">
-                    <button mat-raised-button color="primary">Guardar</button>
+                    <button mat-raised-button color="primary" type="submit">Guardar</button>
                 </div>
             </form>
     </mat-card>

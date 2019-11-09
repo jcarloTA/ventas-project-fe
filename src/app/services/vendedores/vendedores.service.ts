@@ -8,6 +8,7 @@ import { Vendedor } from 'src/app/shared/models/vendedor';
 })
 export class VendedoresService {
   env = environment
+  private _vendedores: Vendedor[];
   constructor(
   private  httpClient: HttpClient
   ) { }
@@ -26,5 +27,17 @@ export class VendedoresService {
   
   delete(id: Number) {
     return this.httpClient.delete(`${this.env.apiUrl}/vendedores/${id}`,)
+  }
+
+  get vendedores(): Vendedor[] {
+    return this._vendedores
+  }
+
+  set vendedores(vendedores: Vendedor[]) {
+    this._vendedores = vendedores;
+  }
+
+  getVendedorById(id) {
+    return this.vendedores.filter( e => e.id == id)[0]
   }
 }

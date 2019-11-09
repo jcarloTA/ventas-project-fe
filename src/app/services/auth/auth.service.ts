@@ -36,4 +36,9 @@ export class AuthService {
       
       return false;
     }
+
+    destoyCredentials() {
+      this.localStorageSevice.clearItems();
+      this.userService.setAllCredentials(null, null, null);
+    } 
 }

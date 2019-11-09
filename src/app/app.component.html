@@ -1,22 +1,22 @@
 <mat-toolbar color="primary">
-    <button mat-flat-button color="primary" (click)="toggleMenu()">
+    <button mat-flat-button color="primary" (click)="toggleMenu()" *ngIf="userService.rolUser == 'Admin'">
             <div class="mat-button-wrapper">
                 <mat-icon>menu</mat-icon>
             </div>
     </button>
     <span class="margin-auto">{{helpersService.title}}</span>
-    <button mat-flat-button color="primary" (click)="logout()">
+    <button mat-flat-button color="primary" (click)="logout()" *ngIf="userService.isLogged">
             <div class="mat-button-wrapper">
                 <mat-icon>power_settings_new</mat-icon>
             </div>
     </button>
-    <button mat-flat-button color="primary" routerLink="carrito/hacer-pedido">
+    <button mat-flat-button color="primary" routerLink="carrito/hacer-pedido" *ngIf="userService.rolUser == 'Vendedor'">
             <div class="mat-button-wrapper">
                 <mat-icon>shopping_cart</mat-icon>
             </div>
     </button>
-    <button mat-button [matMenuTriggerFor]="menu" >Vendedor</button>
-        <mat-menu #menu="matMenu">
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="userService.rolUser == 'Vendedor'">Vendedor</button>
+        <mat-menu #menu="matMenu" *ngIf="userService.rolUser == 'Vendedor'">
         <button mat-menu-item routerLink="carrito/noticias">Ver Noticas</button>
         <button mat-menu-item routerLink="carrito/productos">Ver productos</button>
         <button mat-menu-item routerLink="carrito/pedidos">Mis pedidos</button>

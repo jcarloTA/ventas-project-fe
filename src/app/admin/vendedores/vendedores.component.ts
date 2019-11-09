@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Vendedor } from 'src/app/shared/models/vendedor';
 import { HelpersService } from 'src/app/services/helpers/helpers.service';
 import { Titles } from 'src/app/shared/enums/titles.enum';
+import { VendedoresService } from 'src/app/services/vendedores/vendedores.service';
 
 @Component({
   selector: 'app-vendedores',
@@ -10,22 +11,31 @@ import { Titles } from 'src/app/shared/enums/titles.enum';
 })
 export class VendedoresComponent implements OnInit {
 
-  vendedores: Vendedor[] = [
-    {
-      id: 1,
-      nombre: 'Primer Producto',
-      apellido: 'jueares',
-      direccion: 'direcciokn 1',
-      estado: 'gt',
-      fechaNacimiento: '123-12-12',
-    }
-  ];
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'direccion','estado', 'fechaNacimiento', 'actions'];
-  constructor(public helpersService: HelpersService) {
+  vendedores: Vendedor[]
+  
+  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'direccion', 'estado', 'fechaNacimiento', 'actions'];
+ 
+  constructor(
+    public helpersService: HelpersService,
+    public vendedoresService: VendedoresService) {
     this.helpersService.title = Titles.vendedores;
-   }
-
-  ngOnInit() {
   }
 
+  ngOnInit() {
+    this.getVendedores();
+  }
+
+  getVendedores() {
+    this.vendedoresService.getAll().subscribe((res: Vendedor[]) => {
+      this.vendedoresService.vendedores = res;
+      this.vendedores = this.vendedoresService.vendedores;
+    })
+  }
+
+  eliminar(id) {
+    this.vendedoresService.delete(id).subscribe((res: Vendedor[]) => {
+      this.vendedoresService.vendedores = res;
+      this.vendedores = this.vendedoresService.vendedores;
+    })
+  }
 }

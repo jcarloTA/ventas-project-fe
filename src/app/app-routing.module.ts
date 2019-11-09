@@ -35,8 +35,11 @@ const routes : Routes = [
       { path: 'productos', component: ProductosComponent},
       { path: 'vendedores', component: VendedoresComponent},
       { path: 'crear-anuncio', component: CrearAnuncioComponent},
+      { path: 'editar-anuncio/:id', component: CrearAnuncioComponent},
       { path: 'crear-producto', component: CrearProductoComponent},
+      { path: 'editar-producto/:id', component: CrearProductoComponent},
       { path: 'crear-vendedor', component: CrearVendedorComponent},
+      { path: 'editar-vendedor/:id', component: CrearVendedorComponent},
       { path: 'perfil-administrador', component: PerfilAdministradorComponent},
     ]
   },

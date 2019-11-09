@@ -1,20 +1,26 @@
 <div class="container-login flex-center p-t-2">
     <mat-card>
-            <form>
+            <form (ngSubmit)="saveAnuncio(model)">
                 <mat-form-field class="w-100-p">
-                    <input matInput placeholder="Nombre" name="nombre">
+                    <input matInput placeholder="Nombre" [(ngModel)]="model.nombre" name="nombre">
                 </mat-form-field>
                 
                 <mat-form-field class="w-100-p">
-                    <input matInput placeholder="Descripcion" name="descripcion">
+                    <input matInput placeholder="Descripcion" [(ngModel)]="model.descripcion" name="descripcion">
                 </mat-form-field>
 
                 <mat-form-field class="w-100-p">
-                    <input type="number" matInput placeholder="Costo" name="costo">
+                    <input type="number" matInput placeholder="Costo" [(ngModel)]="model.costo" name="costo">
                 </mat-form-field>
+                <input type="file" placeholder="Imagen" name="imagen" (change)="getFile($event)">
+
+                <br>
         
-                <input type="file" placeholder="Imagen" name="imagen">
-                <button mat-raised-button color="primary">Entrar</button>
+                <img [src]="model.imagen" *ngIf="model.imagen" class="image-create">
+
+                <br>
+
+                <button mat-raised-button color="primary">{{model.id ? 'Editar': 'Crear'}}</button>
             </form>
     </mat-card>
 

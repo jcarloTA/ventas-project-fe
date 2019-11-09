@@ -7,6 +7,7 @@ export interface Vendedor {
     fechaNacimiento: String,
     direccion: String,
     contrasena?: String,
+    confirmarContrasena?: String;
     estado: String,
     telefonos?: Telefono[]
 }
