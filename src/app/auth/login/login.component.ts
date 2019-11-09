@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit {
         this.userService.setAllCredentials(null,res.isLogged,res.rol);
         this.authService.saveLocalCredentials(res);
         this.authGuardService.redirectByRol(res.rol);
+      } else {
+        this.errorLogin = true;
       }
     }, err => {
       console.log('err', err)

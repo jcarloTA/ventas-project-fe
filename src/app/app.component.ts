@@ -3,6 +3,7 @@ import { HelpersService } from './services/helpers/helpers.service';
 import { AuthService } from './services/auth/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from './services/user/user.service';
+import { CarritoService } from './services/carrito/carrito.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent {
     public helpersService: HelpersService, 
     public authService: AuthService,
     public router: Router,
-    public userService: UserService) {
+    public userService: UserService,
+    public carritoService: CarritoService) {
 
   }
 

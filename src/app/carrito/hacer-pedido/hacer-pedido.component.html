@@ -5,7 +5,13 @@
             <form>
                 <ng-template matStepLabel>Datos</ng-template>
                 <mat-form-field>
-                    <input matInput placeholder="Nombre del pedido" required>
+                    <input matInput placeholder="Nombre del pedido" name="nombre" [(ngModel)]="carritoService.pedido.nombre" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                        <input matInput [matDatepicker]="picker" [(ngModel)]="carritoService.pedido.fechaEntrega"  name="fechaEntrega" placeholder="Fecha de Entrega" required>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
                 <div>
                     <button mat-button matStepperNext>Siguiente</button>
@@ -16,33 +22,33 @@
             <form>
                 <ng-template matStepLabel>Productos</ng-template>
                 
-                <table mat-table [dataSource]="productos" matSort class="mat-elevation-z8 w-100-p ">    
+                <table mat-table [dataSource]="carritoService.pedido.detalles" matSort class="mat-elevation-z8 w-100-p ">    
                         <!-- Name Column -->
                         <ng-container matColumnDef="nombre">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-                            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+                            <td mat-cell *matCellDef="let element"> {{element.producto.nombre}} </td>
                         </ng-container>
                         <!-- Name Column -->
                         <ng-container matColumnDef="costo">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Costo </th>
-                            <td mat-cell *matCellDef="let element"> {{element.costo }} </td>
+                            <td mat-cell *matCellDef="let element"> {{element.producto.costo }} </td>
                         </ng-container>
                         
                         <!-- Cantidad Column -->
                         <ng-container matColumnDef="cantidad">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Cantidad </th>
                             <td mat-cell *matCellDef="let element"> 
-                                <button mat-icon-button >
+                                <!-- <button mat-icon-button []>
                                     <mat-icon>remove_circle_outline</mat-icon>
-                                </button>
+                                </button> -->
                                 {{element.cantidad}}
-                                <button mat-icon-button >
+                                <!-- <button mat-icon-button >
                                     <mat-icon>add_circle_outline</mat-icon>
-                                </button>
+                                </button> -->
                             </td>
                         </ng-container>
                         
-                        <ng-container matColumnDef="actions" stickyEnd>
+                        <!-- <ng-container matColumnDef="actions" stickyEnd>
                                 <th mat-header-cell *matHeaderCellDef></th>
                                 <td mat-cell *matCellDef="let element">
                                     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -55,7 +61,7 @@
                                         </button>
                                     </mat-menu>
                                 </td>
-                        </ng-container>
+                        </ng-container> -->
                         
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -70,10 +76,10 @@
         </mat-step>
         <mat-step>
             <ng-template matStepLabel>Done</ng-template>
-            Terminra Pedido
+            Terminar Pedido
             <div>
                 <button mat-button matStepperPrevious>Regresar</button>
-                <button mat-button (click)="stepper.reset()">Finalizar</button>
+                <button mat-button (click)="savePedido()">Finalizar</button>
             </div>
         </mat-step>
     </mat-horizontal-stepper>

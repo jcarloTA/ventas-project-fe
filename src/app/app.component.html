@@ -13,14 +13,17 @@
     <button mat-flat-button color="primary" routerLink="carrito/hacer-pedido" *ngIf="userService.rolUser == 'Vendedor'">
             <div class="mat-button-wrapper">
                 <mat-icon>shopping_cart</mat-icon>
+                <span>{{carritoService.pedido ? carritoService.pedido.detalles.length : ''}}</span>
             </div>
     </button>
-    <button mat-button [matMenuTriggerFor]="menu" *ngIf="userService.rolUser == 'Vendedor'">Vendedor</button>
-        <mat-menu #menu="matMenu" *ngIf="userService.rolUser == 'Vendedor'">
-        <button mat-menu-item routerLink="carrito/noticias">Ver Noticas</button>
-        <button mat-menu-item routerLink="carrito/productos">Ver productos</button>
-        <button mat-menu-item routerLink="carrito/pedidos">Mis pedidos</button>
-        <button mat-menu-item routerLink="carrito/perfil">Mi perfil</button>
-    </mat-menu>
+    <div *ngIf="userService.rolUser == 'Vendedor'">
+        <button mat-button [matMenuTriggerFor]="menu" >Vendedor</button>
+            <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="carrito/noticias">Ver Noticas</button>
+            <button mat-menu-item routerLink="carrito/productos">Ver productos</button>
+            <button mat-menu-item routerLink="carrito/pedidos">Mis pedidos</button>
+            <button mat-menu-item routerLink="carrito/perfil">Mi perfil</button>
+        </mat-menu>
+    </div>
 </mat-toolbar>
 <router-outlet></router-outlet>
