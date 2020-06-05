@@ -5,6 +5,6 @@ export interface Pedido {
     nombre: String,
     montoTotal: Number,
     fechaEntrega: String,
-    idVendedor?: Number,
+    idVendedor?: any,
     detalles?: DetallePedido[ ]
 }

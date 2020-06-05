@@ -13,6 +13,8 @@ import { ProductosComponent } from './productos/productos.component';
 import { VendedoresComponent } from './vendedores/vendedores.component';
 import { FormsModule } from '@angular/forms';
 import { PerfilAdministradorComponent } from './perfil-administrador/perfil-administrador.component';
+import { AppDonutChartComponent } from '../components/app-donut-chart/app-donut-chart.component';
+import { AppAreaChartComponent } from '../components/app-area-chart/app-area-chart.component';
 
 
 
@@ -26,7 +28,9 @@ import { PerfilAdministradorComponent } from './perfil-administrador/perfil-admi
     AnunciosComponent,
     ProductosComponent,
     VendedoresComponent,
-    PerfilAdministradorComponent
+    PerfilAdministradorComponent,
+    AppDonutChartComponent,
+    AppAreaChartComponent
   ],
   imports: [
     RouterModule,

@@ -87,3 +87,25 @@ body {
 .image-create{
     width: 300px;
 }
+
+
+#chartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  app-area-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.orderStatusContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

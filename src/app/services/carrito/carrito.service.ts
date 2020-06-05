@@ -26,7 +26,7 @@ export class CarritoService {
   createPedido(body) {
     return this.httpClient.post(`${this.env.apiUrl}/pedidos/`, body)
   }
-  
+
   get pedido():Pedido {
     return this._pedido;
   }
@@ -51,7 +51,7 @@ export class CarritoService {
         nombre: "",
         fechaEntrega: "",
         montoTotal: 0,
-        idVendedor: this.userServic.vendedor.id,
+        idVendedor: this.userServic.vendedor ? this.userServic.vendedor.id :null,
         detalles: []
       }
     }
