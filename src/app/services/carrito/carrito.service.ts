@@ -51,7 +51,7 @@ export class CarritoService {
         nombre: "",
         fechaEntrega: "",
         montoTotal: 0,
-        idVendedor: this.userServic.vendedor ? this.userServic.vendedor.id :null,
+        idVendedor: this.userServic.vendedor ? this.userServic.vendedor.id: null,
         detalles: []
       }
     }

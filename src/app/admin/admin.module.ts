@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { PerfilAdministradorComponent } from './perfil-administrador/perfil-administrador.component';
 import { AppDonutChartComponent } from '../components/app-donut-chart/app-donut-chart.component';
 import { AppAreaChartComponent } from '../components/app-area-chart/app-area-chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -37,7 +38,8 @@ import { AppAreaChartComponent } from '../components/app-area-chart/app-area-cha
     CommonModule,
     MaterialNavigationModule,
     MaterialFormsModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ]
 })
 export class AdminModule { }

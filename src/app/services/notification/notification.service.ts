@@ -2,15 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/index';
 import { NativeEventSource, EventSourcePolyfill } from 'event-source-polyfill';
+import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
 
-
-  /* -------------------------------------------------------------------------------------------------------------- */
-  private serviceURL = 'http://localhost:8585/persona';
 
 
 
@@ -30,12 +28,12 @@ export class NotificationService {
    * Servicio que permite la conexion hacia el servicio reactivo,
    * dicha funcion retorna
    */
-  public getPersonaNotification(): Observable<any> {
+  public getPedidosNotifications(): Observable<any> {
 
     // creando un observable ... que este conectado mediante un "EventSource"
     return Observable.create((observer) => {
 
-      const url: any = this.serviceURL + '/notification/sse';
+      const url: any = environment.apiUrl + '/pedidos/notification/sse';
 
       // definiendo conexion de event source ... asi como los eventos que estara escuchando
       /*const eventSource = new EventSourcePolyfill(url,
